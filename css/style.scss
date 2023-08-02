@@ -1,0 +1,63 @@
+body {
+  background: #f6f6f6;
+}
+.cardUser {
+  background: #f6f6f6;
+
+  .boxUser {
+    img {
+      width: 50%;
+      padding: 10px 50px 10px 0;
+      margin-bottom: 30px;
+
+      &:first-child {
+        border-right: 1px dashed #000;
+      }
+    }
+    #playerUserSPR{
+      width: 55%;
+    }
+    .card-body {
+      border-top: 1px solid #000;
+    }
+  }
+}
+.cardComp {
+  background: #f6f6f6;
+
+  .boxComp {
+    img {
+      width: 50%;
+      padding: 20px 0 20px 50px;
+      margin-bottom: 30px;
+
+      &:first-child {
+        border-right: 1px dashed #000;
+      }
+    }
+    .card-body {
+      border-top: 1px solid #000;
+    }
+  }
+}
+.buttons {
+  .icons {
+    width: 8%;
+    margin: 30px;
+
+    img {
+      transition: 0.3s ease-in-out;
+      cursor: pointer;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      padding: 5px;
+    }
+    &:hover img {
+      transform: scale(1.1);
+      box-shadow: 0 0 5px 5px rgb(168, 172, 172);
+    }
+  }
+}
+#vs{
+  text-shadow: 5px 0px  #ccc !important;
+}

@@ -6,20 +6,21 @@ const playerCompTitle = document.querySelector("#playerCompTitle");
 const playerCompScore = document.querySelector("#playerCompScore");
 const playerCompSPR = document.querySelector("#playerCompSPR");
 
+const cardUser = document.querySelector(".cardUser");
+const cardComp = document.querySelector(".cardComp");
+
 const myName = document.querySelector("#myName");
 
 const arrSPR = ["s", "p", "r"];
-
 
 const icon1 = document.querySelector("#icon1");
 const icon2 = document.querySelector("#icon2");
 const icon3 = document.querySelector("#icon3");
 
-
-
 let userScore = 0;
 let compScore = 0;
 
+alert("Welcome to the rock-paper-scissors game");
 let whatName = prompt("What is your name?");
 
 myName.innerText = whatName ? `${whatName}` : "User Player";
@@ -60,24 +61,19 @@ function showSPR(img1, img2) {
   playerCompSPR.src = `img/${img2}.png`;
 }
 
-
-
-
 function startGame(e) {
   let playerUserChoose;
   //   console.log(playerUserChoose);
   if (e.type === "keydown") {
     playerUserChoose = e.key;
-  } else if (e.type === "click" ) {
-
-  
-   if(e.target.id === "icon1"){
-    playerUserChoose = "s"
-   }else if(e.target.id === "icon2"){
-    playerUserChoose = "r"
-   }else if(e.target.id === "icon3"){
-    playerUserChoose = "p"
-   }
+  } else if (e.type === "click") {
+    if (e.target.id === "icon1") {
+      playerUserChoose = "s";
+    } else if (e.target.id === "icon2") {
+      playerUserChoose = "r";
+    } else if (e.target.id === "icon3") {
+      playerUserChoose = "p";
+    }
   }
   if (!arrSPR.includes(playerUserChoose)) {
     alert("Please correct choose item: 's','p','r'");
@@ -112,9 +108,34 @@ function startGame(e) {
     isWin();
     showSPR(playerUserChoose, playerCompChoose);
   }
- 
+
+  if (userScore > compScore) {
+    console.log("a");
+    cardUser.classList.remove("loseBShadow");
+    cardComp.classList.remove("winBShadow");
+    cardUser.classList.remove("drawBShadow");
+    cardComp.classList.remove("drawBShadow");
+    cardUser.classList.add("winBShadow");
+    cardComp.classList.add("loseBShadow");
+  } else if (userScore < compScore) {
+    console.log("b");
+    cardUser.classList.remove("winBShadow");
+    cardComp.classList.remove("loseBShadow");
+    cardUser.classList.remove("drawBShadow");
+    cardComp.classList.remove("drawBShadow");
+    cardUser.classList.add("loseBShadow");
+    cardComp.classList.add("winBShadow");
+  } else {
+    cardUser.classList.remove("winBShadow");
+    cardComp.classList.remove("loseBShadow");
+    cardUser.classList.remove("loseBShadow");
+    cardComp.classList.remove("winBShadow");
+    cardComp.classList.add("drawBShadow");
+    cardUser.classList.add("drawBShadow");
+  }
 }
 window.onkeydown = startGame;
 icon1.onclick = startGame;
 icon2.onclick = startGame;
 icon3.onclick = startGame;
+

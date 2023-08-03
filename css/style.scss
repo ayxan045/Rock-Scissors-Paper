@@ -1,9 +1,17 @@
 body {
-  background: #f6f6f6;
+  background: #dfdddd;
+}
+.winBShadow {
+  box-shadow: 0 0 10px 1px rgb(8, 232, 8);
+}
+.loseBShadow {
+  box-shadow: 0 0 10px 1px rgb(251, 50, 50);
+}
+.drawBShadow {
+  box-shadow: 0 0 10px 1px blue;
 }
 .cardUser {
   background: #f6f6f6;
-
   .boxUser {
     img {
       width: 50%;
@@ -14,7 +22,7 @@ body {
         border-right: 1px dashed #000;
       }
     }
-    #playerUserSPR{
+    #playerUserSPR {
       width: 55%;
     }
     .card-body {
@@ -58,6 +66,65 @@ body {
     }
   }
 }
-#vs{
-  text-shadow: 5px 0px  #ccc !important;
+#vs {
+  text-shadow: 5px 0px #b5b4b4 !important;
+  font-size: 60px;
+}
+
+@media screen and (max-width: 999px) {
+  .cardUser {
+    .boxUser {
+      .imgUser {
+        display: none;
+      }
+      #playerUserSPR {
+        width: 100%;
+      }
+    }
+  }
+  .cardComp {
+    .boxComp {
+      .imgComp {
+        display: none;
+      }
+      #playerCompSPR {
+        width: 100%;
+        border-right: 0px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 778px) {
+  .card-body {
+    h4,
+    p {
+      font-size: 10px !important;
+    }
+  }
+  #vs {
+    // font-size: 15px;
+    // text-shadow: none !important;
+    display: none;
+  }
+  .cardUser {
+    .boxUser {
+      #playerUserSPR {
+        width: 80%;
+        padding: 0 !important;
+        margin: 0 !important;
+        margin-bottom: 10px !important;
+      }
+    }
+  }
+  .cardComp {
+    .boxComp {
+      #playerCompSPR {
+        width: 80%;
+        padding: 0 !important;
+        margin: 0 !important;
+        margin-bottom: 10px !important;
+      }
+    }
+  }
 }

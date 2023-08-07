@@ -10,8 +10,34 @@ body {
 .drawBShadow {
   box-shadow: 0 0 10px 1px blue;
 }
+.scaleWin {
+  transform: scale(1.1);
+}
+.scaleLose {
+  transform: scale(0.9);
+}
+#music {
+  border-radius: 50%;
+  background: transparent;
+  padding: 12px;
+  margin: 5px 5px 5px 40px;
+  opacity: 0.5;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    opacity: 1;
+  }
+}
+#audio {
+  margin-top: 5px;
+  margin-left: 30px;
+  transition: 1s;
+}
+.displayNone {
+  opacity: 0;
+}
 .cardUser {
   background: #f6f6f6;
+  transition: 0.7s ease-in-out;
   .boxUser {
     img {
       width: 50%;
@@ -32,7 +58,7 @@ body {
 }
 .cardComp {
   background: #f6f6f6;
-
+  transition: 0.7s ease-in-out;
   .boxComp {
     img {
       width: 50%;
@@ -48,7 +74,19 @@ body {
     }
   }
 }
+
 .buttons {
+  .score {
+    p {
+      font-size: 90px;
+    }
+    #user {
+      margin-right: 90px;
+    }
+    #computer {
+      margin-left: 90px;
+    }
+  }
   .icons {
     width: 8%;
     margin: 30px;
@@ -73,29 +111,62 @@ body {
 
 @media screen and (max-width: 999px) {
   .cardUser {
+    padding: 15px !important;
     .boxUser {
-      .imgUser {
-        display: none;
-      }
-      #playerUserSPR {
-        width: 100%;
+      #wrap {
+        flex-direction: column !important;
+        .imgUser {
+          width: 100%;
+          padding: 0;
+          border-right: none;
+        }
+        #playerUserSPR {
+          width: 100%;
+        }
       }
     }
   }
   .cardComp {
+    padding: 15px !important;
     .boxComp {
-      .imgComp {
-        display: none;
+      #wrap {
+        flex-direction: column-reverse !important;
+
+        .imgComp {
+          width: 100%;
+          padding: 0;
+        }
       }
+
       #playerCompSPR {
         width: 100%;
-        border-right: 0px;
+        border-right: none;
       }
+    }
+  }
+  .card-body {
+    padding: 0;
+    .card-title{
+    margin-top: 10px;
+
+    }
+  }
+  .buttons {
+    .icons {
+      width: 15%;
+      margin: 9;
+      margin-top: 27;
     }
   }
 }
 
 @media screen and (max-width: 778px) {
+  #music {
+    margin-left: 10px;
+  }
+  #audio {
+    margin-left: 10px;
+  }
   .card-body {
     h4,
     p {
@@ -103,15 +174,13 @@ body {
     }
   }
   #vs {
-    // font-size: 15px;
-    // text-shadow: none !important;
     display: none;
   }
   .cardUser {
     .boxUser {
       #playerUserSPR {
-        width: 80%;
-        padding: 0 !important;
+        width: 80% !important;
+        padding: 0 0 0 10px !important;
         margin: 0 !important;
         margin-bottom: 10px !important;
       }
@@ -126,5 +195,27 @@ body {
         margin-bottom: 10px !important;
       }
     }
+  }
+  .scoreMob {
+    p {
+      font-size: 60px;
+    }
+  }
+  .buttons {
+    .icons {
+      width: 58%;
+      margin: 30px;
+    }
+    .score {
+      display: none !important;
+      
+    }
+  }
+}
+
+
+@media screen and (min-width:780px) {
+  .scoreMob {
+    display: none !important;
   }
 }
